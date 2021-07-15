@@ -1,26 +1,29 @@
 package br.com.mercadolivre.seuimovel.dto.room;
 
+import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
 
 public class RoomDTO {
 
     @NotNull(message = "É obrigatório informar o nome do cômodo.")
     @NotBlank(message = "O nome do cômodo não pode estar vazio.")
     @Size(max=30, message = "O comprimento do nome do cômodo não pode exceder 30 caracteres.")
-    @Pattern(regexp = "([A-Z])\\\\w+", message = "O nome do cômodo deve começar com uma letra maiúscula.")
+    @Pattern(regexp = "^[A-Z].*", message = "O nome do cômodo deve começar com uma letra maiúscula.")
     private String room_name;
 
     @NotNull(message = "É obrigatório informar a largura do cômodo.")
-    @NotBlank(message = "A largura do cômodo não pode estar vazia.")
+    @Min(value = 1, message = "A largura do cômodo não pode estar vazia.")
     @DecimalMax(value = "25.0", message = "A largura máxima permitida por cômodo é de 25 metros.")
     private double room_width;
 
     @NotNull(message = "É obrigatório informar o comprimento do cômodo.")
-    @NotBlank(message = "O comprimento do cômodo não pode estar vazio.")
+    @Min(value = 1, message = "O comprimento do cômodo não pode estar vazio.")
     @DecimalMax(value = "33.0", message = "O comprimento máximo permitido por cômodo é de 33 metros.")
     private double room_length;
 

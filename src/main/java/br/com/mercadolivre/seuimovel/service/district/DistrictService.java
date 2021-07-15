@@ -1,5 +1,7 @@
 package br.com.mercadolivre.seuimovel.service.district;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,14 @@ public class DistrictService {
 
     public boolean checkIfDistrictExists(PropertyDTO propertyDTO) {
         return repository.isValid(DistrictDTO.convert(propertyDTO.getDistrict()));
+    }
+
+    public List<DistrictDTO> index() {
+        return repository.index();
+    }
+
+    public DistrictDTO create(DistrictDTO dto) {
+        return repository.create(dto);
     }
 
 

@@ -20,8 +20,8 @@ import br.com.mercadolivre.seuimovel.dto.property.PropertyDTO;
 import br.com.mercadolivre.seuimovel.dto.room.RoomDTO;
 import br.com.mercadolivre.seuimovel.dto.room.RoomM2DTO;
 import br.com.mercadolivre.seuimovel.exception.DistrictNotFoundException;
-import br.com.mercadolivre.seuimovel.service.PropertyService;
 import br.com.mercadolivre.seuimovel.service.district.DistrictService;
+import br.com.mercadolivre.seuimovel.service.property.PropertyService;
 
 @SpringBootTest
 public class PropertyUnitTests {

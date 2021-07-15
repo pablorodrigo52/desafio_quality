@@ -2,14 +2,19 @@ package br.com.mercadolivre.seuimovel.dto.district;
 
 import java.math.BigDecimal;
 
+import javax.validation.Valid;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
+
 import br.com.mercadolivre.seuimovel.entities.district.District;
 
 public class DistrictDTO {
-
 
     @NotNull(message = "É obrigatório informar o bairro da propriedade.")
     @NotBlank(message = "O bairro não pode estar vazio.")
@@ -17,8 +22,8 @@ public class DistrictDTO {
     private String prop_district;
 
     @NotNull(message = "É obrigatório informar o valor do m2 no bairro.")
-    @NotBlank(message = "O valor do m2 no bairro não pode estar vazio.")
-    @Size(max=13, message = "O comprimento máximo do valor do m2 não pode exceder 13 dígitos.")
+    @Min(value = 1, message = "O valor do m2 no bairro não pode estar vazio.")
+    @DecimalMax(value = "9999999999.999", message = "O comprimento máximo do valor do m2 não pode exceder 13 dígitos.")
     private BigDecimal value_district_m2;
 
     public DistrictDTO() {

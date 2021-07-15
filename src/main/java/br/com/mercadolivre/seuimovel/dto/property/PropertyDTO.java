@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -20,12 +21,13 @@ public class PropertyDTO {
     @NotNull(message = "É obrigatório informar o nome da propriedade.")
     @NotBlank(message = "O nome da propriedade não pode estar vazio.")
     @Size(max=30, message = "O comprimento do nome não pode exceder 30 caracteres.")
-    @Pattern(regexp = "([A-Z])\\\\w+", message = "O nome da propriedade deve começar com uma letra maiúscula.")
+    @Pattern(regexp = "^[A-Z].*", message = "O nome da propriedade deve começar com uma letra maiúscula.")
     private String prop_name;
 
+    @Valid
     private DistrictDTO district;
     
-    private List<RoomDTO> rooms;
+    private List<@Valid RoomDTO> rooms;
 
     public PropertyDTO() {
     }
