@@ -1,4 +1,4 @@
-package br.com.mercadolivre.seuimovel.property.dto;
+package br.com.mercadolivre.seuimovel.dto.property;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -9,8 +9,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import br.com.mercadolivre.seuimovel.property.entities.Property;
-import br.com.mercadolivre.seuimovel.property.entities.Room;
+import br.com.mercadolivre.seuimovel.dto.room.RoomDTO;
+import br.com.mercadolivre.seuimovel.entities.property.Property;
+import br.com.mercadolivre.seuimovel.entities.room.Room;
 
 
 public class PropertyDTO {

@@ -1,4 +1,4 @@
-package br.com.mercadolivre.seuimovel.property.entities;
+package br.com.mercadolivre.seuimovel.entities.room;
 
 public class Room {
 

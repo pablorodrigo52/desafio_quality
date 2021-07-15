@@ -1,4 +1,4 @@
-package br.com.mercadolivre.seuimovel.property.service;
+package br.com.mercadolivre.seuimovel.service;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -8,9 +8,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.mercadolivre.seuimovel.property.dto.PropertyDTO;
-import br.com.mercadolivre.seuimovel.property.dto.RoomDTO;
-import br.com.mercadolivre.seuimovel.property.dto.RoomM2DTO;
+import br.com.mercadolivre.seuimovel.dto.property.PropertyDTO;
+import br.com.mercadolivre.seuimovel.dto.room.RoomDTO;
+import br.com.mercadolivre.seuimovel.dto.room.RoomM2DTO;
 
 @Service
 public class PropertyService {

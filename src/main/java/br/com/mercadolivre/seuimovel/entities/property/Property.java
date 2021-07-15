@@ -1,7 +1,9 @@
-package br.com.mercadolivre.seuimovel.property.entities;
+package br.com.mercadolivre.seuimovel.entities.property;
 
 import java.math.BigDecimal;
 import java.util.List;
+
+import br.com.mercadolivre.seuimovel.entities.room.Room;
 
 public class Property {
 

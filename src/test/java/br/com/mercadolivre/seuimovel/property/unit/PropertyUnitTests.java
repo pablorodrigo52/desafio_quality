@@ -13,10 +13,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import br.com.mercadolivre.seuimovel.property.dto.PropertyDTO;
-import br.com.mercadolivre.seuimovel.property.dto.RoomDTO;
-import br.com.mercadolivre.seuimovel.property.dto.RoomM2DTO;
-import br.com.mercadolivre.seuimovel.property.service.PropertyService;
+import br.com.mercadolivre.seuimovel.dto.property.PropertyDTO;
+import br.com.mercadolivre.seuimovel.dto.room.RoomDTO;
+import br.com.mercadolivre.seuimovel.dto.room.RoomM2DTO;
+import br.com.mercadolivre.seuimovel.service.PropertyService;
 
 @SpringBootTest
 public class PropertyUnitTests {

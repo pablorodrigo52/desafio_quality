@@ -1,4 +1,4 @@
-package br.com.mercadolivre.seuimovel.property.dto;
+package br.com.mercadolivre.seuimovel.dto.room;
 
 public class RoomM2DTO {
     

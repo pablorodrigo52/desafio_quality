@@ -1,4 +1,4 @@
-package br.com.mercadolivre.seuimovel.property.exception;
+package br.com.mercadolivre.seuimovel.exception;
 
 public class ValidationError {
     private String field, message, rejectedValue;

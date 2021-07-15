@@ -1,4 +1,4 @@
-package br.com.mercadolivre.seuimovel.property.exception;
+package br.com.mercadolivre.seuimovel.exception;
 
 import java.util.ArrayList;
 import java.util.List;
