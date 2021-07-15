@@ -1,6 +1,5 @@
 package br.com.mercadolivre.seuimovel.service;
 
-import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.stream.Collectors;
 import java.util.Comparator;
@@ -29,7 +28,7 @@ public class PropertyService {
             propertyDTO.getRooms()
             .stream()
             .mapToDouble(
-                room -> room.getM2()*propertyDTO.getValue_district_m2().doubleValue())
+                room -> room.getM2()*propertyDTO.getDistrict().getValue_district_m2().doubleValue())
             .sum()
         );
     }

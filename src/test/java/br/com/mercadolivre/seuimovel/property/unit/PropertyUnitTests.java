@@ -1,6 +1,7 @@
 package br.com.mercadolivre.seuimovel.property.unit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
@@ -9,14 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import br.com.mercadolivre.seuimovel.dto.district.DistrictDTO;
 import br.com.mercadolivre.seuimovel.dto.property.PropertyDTO;
 import br.com.mercadolivre.seuimovel.dto.room.RoomDTO;
 import br.com.mercadolivre.seuimovel.dto.room.RoomM2DTO;
+import br.com.mercadolivre.seuimovel.exception.DistrictNotFoundException;
 import br.com.mercadolivre.seuimovel.service.PropertyService;
+import br.com.mercadolivre.seuimovel.service.district.DistrictService;
 
 @SpringBootTest
 public class PropertyUnitTests {
@@ -24,9 +29,14 @@ public class PropertyUnitTests {
     @Autowired
     private PropertyService service;
 
+    @Autowired
+    private DistrictService districtService;
+
     private RoomDTO room1 = new RoomDTO("Sala de teste", 50.0, 25.0);
     private RoomDTO room2 = new RoomDTO("Cozinha de teste", 25.0, 25.0);
     private RoomDTO room3 = new RoomDTO("Quarto de teste", 15.0, 17.0);
+
+    private DistrictDTO district = new DistrictDTO("Alphaville", new BigDecimal(119.01));
 
     @Test
     public void shouldBeCalculateM2ForAProperty(){
@@ -66,13 +76,32 @@ public class PropertyUnitTests {
         }
     }
 
+    @Test
+    public void shouldBeCheckIfDistrictExists(){
+        PropertyDTO propertyDTO = createAProperty();
+
+        boolean actual = districtService.checkIfDistrictExists(propertyDTO);
+        boolean expected = true;
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldBeCheckIfDistrictNotExists(){
+        DistrictDTO notDistrict = new DistrictDTO("KKKKKKKKKK", new BigDecimal(119.01));
+        PropertyDTO propertyDTO = createAProperty();
+        propertyDTO.setDistrict(notDistrict);
+
+        assertThrows(DistrictNotFoundException.class, () -> districtService.checkIfDistrictExists(propertyDTO));
+
+    }
 
     private PropertyDTO createAProperty(){
         List<RoomDTO> rooms = new ArrayList<>();
         rooms.add(room1);
         rooms.add(room2);
         rooms.add(room3);
-        return new PropertyDTO("Terreno de teste", "Bairro de teste", new BigDecimal(119.01), rooms);
+        return new PropertyDTO("Terreno de teste", district, rooms);
     }
 
 }
